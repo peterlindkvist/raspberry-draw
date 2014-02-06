@@ -1,0 +1,22 @@
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect(); // TIP: .connect with no args does auto-discovery
+        socket.on('connect', function () { // TIP: you can avoid listening on `connect` and listen on events directly too!
+            console.log("connected")
+        });
+
+        var motor = function(data){
+            socket.emit('motor', data, function (ret) {
+                console.log("ret1", ret);
+            });
+        };
+
+    </script>
+</head>
+<body>
+    <h1>test</h1>
+
+</body>
+</html>
